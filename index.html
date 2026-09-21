@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Training - Presentación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Audio de fondo -->
+    <!-- Se deja un mp3 de prueba, el usuario debe colocar el suyo en assets/audio.mp3 -->
+    <audio id="bg-music" loop>
+        <source src="assets/audio.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="music-toggle" class="music-btn"><i class="fas fa-play"></i> Iniciar Música</button>
+
+    <!-- Diapositiva 1: Inicio -->
+    <section class="slide-section" id="slide-1" style="background-image: url('assets/Diapositiva_1_imagen_2.jpg'); background-size: cover; background-position: center;">
+        <div class="overlay"></div>
+        <div class="container slide-content">
+            <h1 class="hero-title fade-in">Full Training</h1>
+            <p class="hero-subtitle fade-in delay-1">Bienvenidos a la capacitación en línea</p>
+            <a href="javascript:void(0)" id="btn-comenzar" class="btn-scroll fade-in delay-2">Comenzar <i class="fas fa-play"></i></a>
+        </div>
+    </section>
+
+    <!-- Contenedor del Video de Intro (Slide 2) -->
+    <div id="intro-video-container" class="fullscreen-video-overlay">
+        <video id="intro-video" class="fullscreen-video">
+            <source src="assets/Diapositiva_2_video_1.mp4" type="video/mp4">
+        </video>
+        <button id="skip-intro" class="skip-btn">Saltar Intro <i class="fas fa-forward"></i></button>
+    </div>
+
+    <!-- Diapositiva 3/4: Tarjetas Giratorias -->
+    <section class="slide-section" id="slide-3" style="background-image: url('assets/Diapositiva_2_video_1_bottom.gif'); background-size: cover; background-position: center; position: relative;">
+        <div class="overlay-dark" style="background: rgba(10, 15, 30, 0.7);"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <h2 class="section-title text-center">Usuarios Objetivo - A7 Pro 5G</h2>
+            <div class="cards-grid">
+                <!-- Tarjeta 1 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h3>Profesionistas / Emprendedoras</h3>
+                            <i class="fas fa-briefcase fa-3x"></i>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Buscan diseño premium, cámaras excepcionales para redes sociales y carga ultra rápida.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tarjeta 2 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h3>Life Style Universitarias / Ejecutivos Jr</h3>
+                            <i class="fas fa-user-graduate fa-3x"></i>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Valoran la fluidez multitarea, herramientas de IA y la resistencia en su día a día.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tarjeta 3 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h3>Estudiantes Jóvenes / Gamers ocasionales</h3>
+                            <i class="fas fa-gamepad fa-3x"></i>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Priorizan rendimiento gráfico, batería duradera y pantallas con alta tasa de refresco.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tarjeta 4 -->
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h3>Conductores y Repartidores / Oficios Rudos</h3>
+                            <i class="fas fa-motorcycle fa-3x"></i>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Requieren resistencia extrema, conectividad 5G estable y pantallas brillantes en exteriores.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diapositiva 7: Acrónimo BEST -->
+    <section class="slide-section" id="slide-7" style="background-image: url('assets/Diapositiva_7_imagen_1.jpg'); background-size: cover; background-position: center; position: relative;">
+        <div class="overlay-dark"></div>
+        <div class="container slide-content" style="z-index: 2;">
+            <h2 class="section-title text-center" style="color: white; margin-bottom: 3rem;">El Acrónimo de las Ventajas</h2>
+            <div class="acronym-container">
+                <a href="#slide-bateria" class="acronym-letter" style="text-decoration: none;">B</a>
+                <a href="#slide-estandar" class="acronym-letter" style="text-decoration: none;">E</a>
+                <a href="#slide-selfie" class="acronym-letter" style="text-decoration: none;">S</a>
+                <a href="#slide-total" class="acronym-letter" style="text-decoration: none;">T</a>
+            </div>
+            <!-- Botón de resumen oculto por defecto -->
+            <div id="resumen-container" style="display: none; text-align: center; margin-top: 4rem;">
+                <button id="btn-resumen" class="btn-scroll fade-in" onclick="document.getElementById('modal-resumen').classList.add('show')" style="font-size: 1.5rem; padding: 1rem 3rem;">Ver Resumen <i class="fas fa-play"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diapositiva Letra B (Batería interactiva) -->
+    <section class="slide-section" id="slide-bateria" style="background-image: url('assets/Diapositiva_12_young_man.gif'); background-size: cover; background-position: center; position: relative;">
+        <!-- Botón para volver/cerrar esta sección -->
+        <a href="#slide-7" class="close-section-btn" title="Volver al Acrónimo">&times;</a>
+        
+        <div class="overlay-dark" style="background: rgba(0,0,0,0.3);"></div>
+        <div class="container slide-content slide-bateria-layout" style="z-index: 2; height: 100%; position: relative;">
+            
+            <div class="bateria-left">
+                <div class="interactive-text-clean" onclick="openVideoModal('assets/Diapositiva_14_carga reversible.mp4')">
+                    <h3 class="bateria-subtitle">Batería ULD</h3>
+                    <h1 class="bateria-title">8000 <span style="font-size: 3rem;">mAh</span></h1>
+                </div>
+                
+                <div class="interactive-text-clean" style="margin-top: 1rem;" onclick="openImageModal('assets/Diapositiva_15_cargador.jpg')">
+                    <p class="bateria-cargador">Cargador de 45W <span class="highlight-blue">Incluido en caja</span></p>
+                </div>
+                
+                <div class="bhe-container interactive-text-clean" onclick="openImageModal('assets/Diapositiva_14_bhe_image.jpeg')" style="margin-top: 3rem;">
+                    <div class="bhe-text">
+                        Battery<br>Health<br>Engine
+                    </div>
+                    <div class="bhe-logo">BHE</div>
+                </div>
+            </div>
+
+            <div class="bateria-right">
+                <div class="glass-box interactive-text-clean" onclick="openVideoModal('assets/Diapositiva_14_duracion extrema.mp4')">
+                    <h3>Tiempos de uso:</h3>
+                    <p><span class="highlight-blue">26.6 hrs</span> - Videos</p>
+                    <p><span class="highlight-blue">14.1 hrs</span> - Gaming</p>
+                    <hr style="border-color: rgba(255,255,255,0.2); margin: 1rem 0;">
+                    <p>Carga : <span class="highlight-blue">15% en 10min</span></p>
+                </div>
+                
+                <div class="bateria-bottom-text interactive-text-clean">
+                    <p>Ultra larga duración hasta <span class="highlight-blue" style="font-size: 2.5rem; font-weight: bold;">3 Días</span></p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Diapositiva Letra E (Estándar / Resistencia) -->
+    <section class="slide-section" id="slide-estandar" style="background-color: #000; position: relative; display: flex; align-items: center; justify-content: center;">
+        <a href="#slide-7" class="close-section-btn" title="Volver al Acrónimo">&times;</a>
+        
+        <!-- Contenedor transparente superpuesto en formato 16:9 con el fondo integrado -->
+        <div class="interactive-grid-overlay" style="background-image: url('assets/Diapositiva_2_base_E.gif'); background-size: 100% 100%; background-position: center; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8);">
+            
+            <!-- Fila Superior -->
+            <div class="grid-btn btn-ip69k" onclick="openVideoModal('assets/Diapositiva_5_video_1.mp4')" title="Estándar IP69K"></div>
+            <div class="grid-btn btn-bajo-agua" onclick="openVideoModal('assets/Diapositiva_18_bajo el agua.mp4')" title="Fotos Bajo el Agua"></div>
+            
+            <!-- Fila Inferior -->
+            <div class="grid-btn btn-splash" onclick="openVideoModal('assets/Diapositiva_18_splash touch.mp4')" title="Úsalo Mojado - Splash Touch"></div>
+            <div class="grid-btn btn-military" onclick="openVideoModal('assets/Diapositiva_22_prueba de resistencia.mp4')" title="Military Grade"></div>
+            
+            <!-- Columnas Altas a la Derecha -->
+            <div class="grid-btn btn-temp" onclick="openVideoModal('assets/Diapositiva_18_IP69k.mp4')" title="Resistencia Altas Temperaturas"></div>
+            <div class="grid-btn btn-caida" onclick="openVideoModal('assets/Diapositiva_21_caida extrema.mp4')" title="+9m Caída"></div>
+            
+        </div>
+    </section>
+
+    <!-- Diapositiva Letra S (Selfie 50MP UGA) -->
+    <section class="slide-section" id="slide-selfie" style="background-color: #000; position: relative; display: flex; align-items: center; justify-content: center;">
+        <a href="#slide-7" class="close-section-btn" title="Volver al Acrónimo">&times;</a>
+        
+        <!-- Contenedor transparente superpuesto en formato 16:9 con el fondo integrado -->
+        <div class="interactive-grid-overlay selfie-grid" style="background-image: url('assets/Diapositiva_2_base_S.gif'); background-size: 100% 100%; background-position: center; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8);">
+            
+            <!-- Fila Superior -->
+            <div class="grid-btn btn-selfie-amplias" onclick="document.getElementById('modal-selfies-amplias').classList.add('show');" title="Selfies más amplias"></div>
+            <div class="grid-btn btn-selfie-8k" onclick="openImageModal('assets/Diapositiva_37_imagen_1.png')" title="Fotografías UHD 8K"></div>
+            
+            <!-- Fila Inferior -->
+            <div class="grid-btn btn-doble-camara" onclick="openImageModal('assets/Diapositiva_5_doble_camara.jpeg')" title="Doble Cámara 50MP"></div>
+            <div class="grid-btn btn-herramientas-ia" onclick="openImageModal('assets/Diapositiva_37_imagen_5.jpg')" title="Herramientas IA"></div>
+            
+            <!-- Columna Alta Derecha -->
+            <div class="grid-btn btn-sensor-cmos" onclick="openImageModal('assets/Diapositiva_37_imagen_6.jpg')" title="Sensor CMOS"></div>
+            
+        </div>
+    </section>
+
+    <!-- Diapositiva Letra T (Total) -->
+    <section class="slide-section" id="slide-total" style="background-color: #000; position: relative; display: flex; align-items: center; justify-content: center;">
+        <a href="#slide-7" class="close-section-btn" title="Volver al Acrónimo">&times;</a>
+        
+        <div class="interactive-grid-overlay total-grid" style="background-image: url('assets/Diapositiva_2_base_T.gif'); background-size: 100% 100%; background-position: center; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8);">
+            
+            <!-- Fila Superior -->
+            <div class="grid-btn btn-fluidez" onclick="openFluidezModal()" title="Total Fluidez"></div>
+            <div class="grid-btn btn-amoled" onclick="openImageModal('assets/Diapositiva_46_amoled.jpg')" title="AMOLED 120Hz"></div>
+            
+            <!-- Fila Inferior -->
+            <div class="grid-btn btn-chip-s1" onclick="openVideoModal('assets/Diapositiva_41_video_1.mp4')" title="Network Boost Chip S1"></div>
+            <div class="grid-btn btn-nfc" onclick="openImageModal('assets/Diapositiva_45_nfc.jpg')" title="NFC"></div>
+            <div class="grid-btn btn-enfriamiento" onclick="openImageModal('assets/Diapositiva_1_enfriamiento.gif')" title="Sistema de Enfriamiento VC"></div>
+            
+        </div>
+    </section>
+
+    <!-- Modal Selfies Más Amplias -->
+    <div id="modal-selfies-amplias" class="modal">
+        <div class="modal-content" style="max-width: 95%; width: 1400px; height: 90vh; overflow-y: auto; background: #888; color: white; padding: 2rem;">
+            <span class="close-modal" style="color: white; right: 30px; top: 20px; z-index: 50;">&times;</span>
+            
+            <!-- SECCIÓN 1: A6 Pro vs A7 Pro (Captura 2) -->
+            <div style="background: #999; padding: 2rem; border-radius: 10px; margin-bottom: 4rem; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;">
+                    <h1 style="font-size: 5rem; margin: 0; color: #ccc; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Selfie 50MP</h1>
+                    <h2 style="font-size: 3rem; margin: 0; font-weight: 300;">oppo</h2>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <!-- A6 Pro -->
+                    <div>
+                        <img src="assets/A6 pro.jpg" alt="A6 Pro" style="width: 100%; height: auto; border: 2px solid white;">
+                        <div style="margin-top: 1rem; text-align: left;">
+                            <h2 style="font-size: 2.5rem; margin: 0;">A6 Pro <span style="color: #ccc; font-weight: normal;">– 16MP</span></h2>
+                            <p style="font-size: 1.5rem; color: #eee; margin: 5px 0;">Sin Gran Angular</p>
+                        </div>
+                    </div>
+                    <!-- A7 Pro -->
+                    <div>
+                        <img src="assets/A7 pro.jpg" alt="A7 Pro" style="width: 100%; height: auto; border: 2px solid white;">
+                        <div style="margin-top: 1rem; text-align: right; display: flex; justify-content: space-between; align-items: flex-start;">
+                            <div style="text-align: left;">
+                                <h2 style="font-size: 2.5rem; margin: 0;">A7 Pro <span style="color: #ccc; font-weight: normal;">– 50MP 100°</span></h2>
+                                <p style="font-size: 1.2rem; color: #eee; margin: 5px 0; line-height: 1.4;">Selfie Ultra Gran Angular 0.6x<br>Ultra Nítida - Más detalles - Mejor Balance de Blancos</p>
+                            </div>
+                            <i class="fas fa-crown" style="color: #ffd700; font-size: 4rem; margin-left: 20px;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SECCIÓN 2: Comparativa de 3 Marcas (Captura 3) -->
+            <div style="background: #999; padding: 2rem; border-radius: 10px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;">
+                    <h1 style="font-size: 4rem; margin: 0; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Comparativa selfie</h1>
+                    <div style="text-align: right;">
+                        <h2 style="font-size: 3rem; margin: 0; font-weight: 300; display: inline-block; margin-left: 20px;">oppo</h2>
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 15px;">
+                    <!-- Row 1 -->
+                    <div style="position: relative; border: 4px dashed #00ff00; padding: 5px;">
+                        <img src="assets/a7 pro 1.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                        <i class="fas fa-crown" style="position: absolute; bottom: 20px; right: 20px; color: #ffd700; font-size: 3rem; text-shadow: 0 0 10px rgba(0,0,0,0.8);"></i>
+                    </div>
+                    <div style="position: relative; padding: 5px;">
+                        <img src="assets/s25 1.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                        <h3 style="position: absolute; bottom: 15px; left: 15px; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Samsung<br>S25</h3>
+                    </div>
+                    <div style="position: relative; padding: 5px;">
+                        <img src="assets/iphone 1.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                        <h3 style="position: absolute; bottom: 15px; left: 15px; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">iPhone 14 Pro</h3>
+                    </div>
+                    
+                    <!-- Row 2 -->
+                    <div style="position: relative; border: 4px dashed #00ff00; padding: 5px;">
+                        <img src="assets/a7 pro 2.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                        <i class="fas fa-crown" style="position: absolute; bottom: 20px; right: 20px; color: #ffd700; font-size: 3rem; text-shadow: 0 0 10px rgba(0,0,0,0.8);"></i>
+                    </div>
+                    <div style="position: relative; padding: 5px;">
+                        <img src="assets/s25 2.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                        <h3 style="position: absolute; bottom: 15px; left: 15px; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Samsung<br>S25</h3>
+                    </div>
+                    <div style="position: relative; padding: 5px;">
+                        <img src="assets/iphone 2.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                        <h3 style="position: absolute; bottom: 15px; left: 15px; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">iPhone 14 Pro</h3>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Modal Total Fluidez -->
+    <div id="modal-fluidez" class="modal">
+        <div class="modal-content" style="max-width: 95%; width: 1400px; background: rgba(10, 15, 30, 0.95); color: white; text-align: center; border: 1px solid rgba(0, 255, 255, 0.2);">
+            <span class="close-modal">&times;</span>
+            <h1 style="margin-bottom: 1rem; font-size: 2.5rem;">Total <span style="font-weight: bold;">Fluidez</span></h1>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Más veloz y eficiente <span style="font-size: 1.5rem; font-weight: bold;">en las mismas condiciones</span> de uso con múltiples Apps.</p>
+            
+            <div style="display: flex; gap: 30px; justify-content: center; align-items: flex-end; padding-bottom: 20px;">
+                
+                <!-- OPPO A7 Pro -->
+                <div style="display: flex; flex-direction: column; align-items: center; width: 300px;">
+                    <div class="video-rotate-container">
+                        <img src="assets/Diapositiva_1_OPPO.gif" alt="OPPO A7 Pro">
+                    </div>
+                    <div style="margin-top: 15px; display: flex; align-items: center; gap: 10px;">
+                        <h2 style="margin: 0; font-size: 2rem;">oppo <br><span style="font-size: 1.5rem; font-weight: normal;">A7 Pro</span></h2>
+                        <span style="color: #00ff00; font-size: 3rem; font-weight: bold;">✓</span>
+                    </div>
+                </div>
+
+                <!-- SAMSUNG A37 -->
+                <div style="display: flex; flex-direction: column; align-items: center; width: 300px;">
+                    <div class="video-normal-container">
+                        <img src="assets/Diapositiva_1_samsung.gif" alt="SAMSUNG A37">
+                    </div>
+                    <div style="margin-top: 15px; display: flex; align-items: center; gap: 10px;">
+                        <h2 style="margin: 0; font-size: 2rem; color: #ccc;">SAMSUNG <br><span style="font-size: 1.5rem; font-weight: normal;">A37</span></h2>
+                        <span style="color: #ff0000; font-size: 3rem; font-weight: bold;">✗</span>
+                    </div>
+                </div>
+
+                <!-- vivo V70 FE -->
+                <div style="display: flex; flex-direction: column; align-items: center; width: 300px;">
+                    <div class="video-rotate-container">
+                        <img src="assets/Diapositiva_1_vivo.gif" alt="vivo V70 FE">
+                    </div>
+                    <div style="margin-top: 15px; display: flex; align-items: center; gap: 10px;">
+                        <h2 style="margin: 0; font-size: 2rem; color: #ccc;">vivo <br><span style="font-size: 1.5rem; font-weight: normal;">V70 FE</span></h2>
+                        <span style="color: #ff0000; font-size: 3rem; font-weight: bold;">✗</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Videos -->
+    <div id="video-modal" class="modal">
+        <div class="modal-content video-modal-content" style="background: transparent; border: none; box-shadow: none; display: flex; justify-content: center;">
+            <span class="close-modal video-close" style="top: -30px; right: 0;">&times;</span>
+            <video id="modal-video-player" controls autoplay style="max-height: 85vh; width: auto; max-width: 100%; border-radius: 10px; object-fit: contain; box-shadow: 0 10px 30px rgba(0,0,0,0.8);">
+                <source src="" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+            </video>
+        </div>
+    </div>
+
+    <!-- Modal para Imágenes -->
+    <div id="image-modal" class="modal">
+        <div class="modal-content image-modal-content" style="background: transparent; border: none; box-shadow: none;">
+            <span class="close-modal image-close" style="top: -30px; right: 0;">&times;</span>
+            <img id="modal-image-player" src="" alt="Contenido extra" style="width: 100%; max-height: 80vh; object-fit: contain; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.8);">
+        </div>
+    </div>
+
+    <!-- Modal para Resumen -->
+    <div id="modal-resumen" class="modal">
+        <div class="modal-content" style="max-width: 1400px; width: 90%; background: transparent; border: none; box-shadow: none; padding: 0; position: relative;">
+            <span class="close-modal" style="color: white; right: -40px; top: -40px; font-size: 3rem; text-shadow: 0 0 10px black;">&times;</span>
+            <img src="assets/resumen.gif" alt="Resumen Cinematic" style="width: 100%; height: auto; border-radius: 15px; box-shadow: 0 20px 50px rgba(0,0,0,0.8);">
+        </div>
+    </div>
+
+    <script src="js/main.js?v=2"></script>
+</body>
+</html>

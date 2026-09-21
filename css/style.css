@@ -1,0 +1,561 @@
+/* Variables y paleta base */
+:root {
+    --bg-color: #050a15;
+    --text-color: #ffffff;
+    --accent-color: #00d2ff;
+    --secondary-color: #1a233a;
+    --card-bg: rgba(26, 35, 58, 0.8);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+.text-center { text-align: center; }
+
+/* Botón de música */
+.music-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: #000;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0,210,255,0.4);
+    transition: transform 0.3s, background 0.3s;
+}
+.music-btn:hover {
+    transform: scale(1.05);
+    background-color: #fff;
+}
+
+/* Secciones Slide */
+.slide-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 6rem 0;
+}
+
+.overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(5,10,21,0.9) 0%, rgba(5,10,21,0.4) 100%);
+    z-index: 1;
+}
+.overlay-dark {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1;
+}
+
+.slide-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Tipografía Hero */
+.hero-title {
+    font-size: 5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+.hero-subtitle {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #ddd;
+    margin-bottom: 3rem;
+}
+.btn-scroll {
+    display: inline-block;
+    color: #000;
+    background: var(--accent-color);
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+.btn-scroll:hover {
+    background: #fff;
+    transform: translateY(-3px);
+}
+
+/* Animaciones */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s forwards;
+}
+.delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Flip Cards (Slide 3) */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    color: var(--accent-color);
+}
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 300px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d;
+}
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Ocultar las diapositivas detalladas (B, E, S, T) del flujo normal para que no se vean al scrollear */
+#slide-bateria,
+#slide-estandar,
+#slide-selfie,
+#slide-total {
+    display: none !important;
+}
+
+/* Mostrarlas únicamente cuando el usuario hace clic en el acrónimo (el hash de la URL coincide) */
+#slide-bateria:target,
+#slide-estandar:target,
+#slide-selfie:target,
+#slide-total:target {
+    display: flex !important;
+}
+
+.flip-card-front {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.flip-card-front h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+.flip-card-front i {
+    color: var(--accent-color);
+}
+.flip-card-back {
+    background: linear-gradient(135deg, var(--accent-color), #005bb5);
+    color: white;
+    transform: rotateY(180deg);
+}
+.flip-card-back p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+/* Acrónimo BEST (Slide 7) */
+.acronym-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+.acronym-letter {
+    font-size: 8rem;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 2px #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+.acronym-letter:hover,
+.acronym-letter.completed {
+    color: #00e5ff;
+    -webkit-text-stroke: 0px;
+    text-shadow: 0 0 20px #00e5ff, 0 0 40px #00e5ff;
+}
+.acronym-letter:hover {
+    transform: scale(1.1) translateY(-10px);
+}
+
+/* Letra B y Textos Interactivos (Slide 16) */
+.interactive-text-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    height: 60vh;
+}
+.giant-letter {
+    font-size: 15rem;
+    font-weight: 800;
+    background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+    animation: pulse 3s infinite;
+}
+.interactive-text {
+    background: rgba(0,0,0,0.6);
+    padding: 1.5rem 2.5rem;
+    border-radius: 15px;
+    border-left: 5px solid var(--accent-color);
+    cursor: pointer;
+    transition: all 0.3s;
+    backdrop-filter: blur(10px);
+    margin-bottom: 1.5rem;
+}
+.interactive-text h2 {
+    color: var(--accent-color);
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+}
+.interactive-text p {
+    margin: 0;
+    color: #ccc;
+}
+.interactive-text:hover {
+    transform: translateX(10px);
+    background: rgba(255,255,255,0.1);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Modales */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+.modal-content {
+    background-color: var(--secondary-color);
+    padding: 3rem;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    transform: scale(0.7);
+    transition: transform 0.3s ease;
+}
+.modal.show .modal-content {
+    transform: scale(1);
+}
+.video-modal-content {
+    max-width: 900px;
+    padding: 1rem;
+    background-color: #000;
+}
+.close-modal {
+    color: #aaa;
+    position: absolute;
+    top: 15px; right: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+.close-modal:hover {
+    color: #fff;
+}
+
+/* Intro Video Fullscreen */
+.fullscreen-video-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #000;
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+.fullscreen-video-overlay.show {
+    display: flex;
+}
+.fullscreen-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.skip-btn {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.5);
+    padding: 12px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    z-index: 10001;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+}
+.skip-btn:hover {
+    background: rgba(255,255,255,0.4);
+}
+
+/* Layout Batería (Slide B) */
+.slide-bateria-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 5rem;
+}
+.bateria-left {
+    flex: 1;
+}
+.bateria-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+.interactive-text-clean {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.interactive-text-clean:hover {
+    transform: translateY(-5px);
+}
+.bateria-subtitle {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin: 0;
+    font-weight: 400;
+}
+.bateria-title {
+    font-size: 7rem;
+    color: var(--accent-color);
+    margin: 0;
+    line-height: 1;
+    font-weight: 800;
+}
+.bateria-cargador {
+    font-size: 1.5rem;
+    margin: 0;
+}
+.highlight-blue {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+.bhe-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.bhe-text {
+    font-size: 1.2rem;
+    line-height: 1.2;
+    border-right: 2px solid #fff;
+    padding-right: 15px;
+}
+.bhe-logo {
+    font-size: 4rem;
+    color: var(--accent-color);
+    font-weight: 800;
+}
+.glass-box {
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+.glass-box h3 {
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+.glass-box p {
+    font-size: 1.3rem;
+    margin: 0.5rem 0;
+}
+.bateria-bottom-text {
+    font-size: 1.5rem;
+}
+
+/* Botón cerrar sección (volver) */
+.close-section-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    z-index: 10;
+    transition: all 0.3s;
+}
+.close-section-btn:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Letra E - Estándar Grid */
+.interactive-grid-overlay {
+    position: relative;
+    width: 85%;
+    max-width: 1400px;
+    max-height: 80vh; /* Evita que se salga de la pantalla a lo alto */
+    aspect-ratio: 16 / 9; /* Mantener la proporción del GIF */
+    display: grid;
+    grid-template-columns: 31% 33% 18% 18%;
+    grid-template-rows: 48% 52%;
+    gap: 1%;
+    z-index: 5;
+    margin: 0 auto;
+}
+.grid-btn {
+    cursor: pointer;
+    background: transparent;
+    border-radius: 15px;
+    transition: background 0.3s, transform 0.2s;
+}
+.grid-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+/* Asignaciones del grid */
+.btn-ip69k { grid-column: 1; grid-row: 1; }
+.btn-splash { grid-column: 1; grid-row: 2; margin-top: -10%; } /* Ajuste visual aproximado */
+.btn-bajo-agua { grid-column: 2; grid-row: 1; }
+.btn-military { grid-column: 2; grid-row: 2; margin-top: -5%; }
+.btn-temp { grid-column: 3; grid-row: 1 / span 2; }
+.btn-caida { grid-column: 4; grid-row: 1 / span 2; }
+
+/* Letra S - Selfie Grid */
+.selfie-grid {
+    grid-template-columns: 40% 38% 20%;
+    grid-template-rows: 48% 48%;
+    gap: 2%;
+    padding: 1%;
+}
+.btn-selfie-amplias { grid-column: 1; grid-row: 1; margin-top: 5%; margin-left: 2%; }
+.btn-doble-camara { grid-column: 1; grid-row: 2; margin-left: 2%; }
+.btn-selfie-8k { grid-column: 2; grid-row: 1; margin-top: 5%; }
+.btn-herramientas-ia { grid-column: 2; grid-row: 2; }
+.btn-sensor-cmos { grid-column: 3; grid-row: 1 / span 2; margin-top: 5%; margin-right: 2%; }
+
+/* Letra T - Total Grid */
+.total-grid {
+    grid-template-columns: 24% 24% 19% 29%;
+    grid-template-rows: 48% 48%;
+    gap: 2%;
+    padding: 1%;
+}
+.btn-fluidez { grid-column: 1 / span 2; grid-row: 1; }
+.btn-amoled { grid-column: 3 / span 2; grid-row: 1; }
+.btn-chip-s1 { grid-column: 1 / span 2; grid-row: 2; }
+.btn-nfc { grid-column: 3; grid-row: 2; }
+.btn-enfriamiento { grid-column: 4; grid-row: 2; }
+
+/* Rotar videos horizontales 90 grados para simular celular vertical */
+.video-rotate-container {
+    width: 260px;
+    height: 480px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+.video-rotate-container video,
+.video-rotate-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 480px;  /* igual al alto del contenedor */
+    height: 260px; /* igual al ancho del contenedor */
+    transform: translate(-50%, -50%) rotate(90deg);
+    object-fit: fill; /* fill para que ocupe todo */
+}
+
+/* Video normal (sin rotar) para pantallas verticales de celular */
+.video-normal-container {
+    width: 260px;
+    height: 480px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+.video-normal-container video,
+.video-normal-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

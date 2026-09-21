@@ -1,0 +1,41 @@
+assets/*
+!assets/A6 pro.jpg
+!assets/A7 pro.jpg
+!assets/Diapositiva_12_young_man.gif
+!assets/Diapositiva_14_bhe_image.jpeg
+!assets/Diapositiva_14_carga reversible.mp4
+!assets/Diapositiva_14_duracion extrema.mp4
+!assets/Diapositiva_15_cargador.jpg
+!assets/Diapositiva_18_bajo el agua.mp4
+!assets/Diapositiva_18_splash touch.mp4
+!assets/Diapositiva_1_OPPO.gif
+!assets/Diapositiva_1_enfriamiento.gif
+!assets/Diapositiva_1_imagen_2.jpg
+!assets/Diapositiva_1_samsung.gif
+!assets/Diapositiva_1_vivo.gif
+!assets/Diapositiva_21_caida extrema.mp4
+!assets/Diapositiva_22_prueba de resistencia.mp4
+!assets/Diapositiva_2_base_E.gif
+!assets/Diapositiva_2_base_S.gif
+!assets/Diapositiva_2_base_T.gif
+!assets/Diapositiva_2_video_1.mp4
+!assets/Diapositiva_2_video_1_bottom.gif
+!assets/Diapositiva_37_imagen_1.png
+!assets/Diapositiva_37_imagen_5.jpg
+!assets/Diapositiva_37_imagen_6.jpg
+!assets/Diapositiva_41_video_1.mp4
+!assets/Diapositiva_45_nfc.jpg
+!assets/Diapositiva_46_amoled.jpg
+!assets/Diapositiva_5_doble_camara.jpeg
+!assets/Diapositiva_5_video_1.mp4
+!assets/Diapositiva_7_imagen_1.jpg
+!assets/a7 pro 1.jpg
+!assets/a7 pro 2.jpg
+!assets/audio.mp3
+!assets/iphone 1.jpg
+!assets/iphone 2.jpg
+!assets/resumen.gif
+!assets/s25 1.jpg
+!assets/s25 2.jpg
+*.ini
+
